@@ -1,6 +1,5 @@
 /* Portfolio Custom Styles */
-@import "tailwindcss/preflight";
-@tailwind utilities;
+@import "tailwindcss";
 
 /* Custom CSS Variables */
 :root {
