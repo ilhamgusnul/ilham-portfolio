@@ -150,6 +150,44 @@ document.addEventListener("DOMContentLoaded", function () {
       behavior: "smooth",
     });
   });
+
+  // CTA Section Enhancements
+  const ctaSection = document.querySelector("section.bg-gradient-to-br");
+  if (ctaSection) {
+    const ctaObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Add animation classes to CTA elements
+            const badge = entry.target.querySelector(".inline-flex");
+            const heading = entry.target.querySelector("h2");
+            const description = entry.target.querySelector("p");
+            const buttons = entry.target.querySelectorAll("a");
+            const trustCards = entry.target.querySelectorAll(".bg-white\\/5");
+
+            if (badge) badge.classList.add("animate-fade-in-up");
+            if (heading) heading.classList.add("animate-fade-in-up");
+            if (description) description.classList.add("animate-fade-in-up");
+
+            buttons.forEach((button, index) => {
+              setTimeout(() => {
+                button.classList.add("animate-fade-in-up");
+              }, index * 200);
+            });
+
+            trustCards.forEach((card, index) => {
+              setTimeout(() => {
+                card.classList.add("animate-fade-in-up");
+              }, index * 200);
+            });
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    ctaObserver.observe(ctaSection);
+  }
 });
 
 // Add CSS for animations
@@ -193,6 +231,36 @@ style.textContent = `
     
     .skill-card:hover {
         transform: translateY(-3px);
+    }
+    
+    /* CTA Section Animations */
+    .cta-section {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .cta-animated-bg {
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    .cta-gradient-text {
+        background: linear-gradient(135deg, #ff6b00, #ff8533, #ff6b00);
+        background-size: 200% 200%;
+        animation: gradientShift 3s ease infinite;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
     }
 `;
 document.head.appendChild(style);
