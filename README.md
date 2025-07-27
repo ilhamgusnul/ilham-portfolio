@@ -28,6 +28,8 @@ portfolio-vite-vanilla/
 │   ├── main.js            # JavaScript functionality
 │   └── style.css          # Custom styles
 ├── public/
+│   ├── favicon.svg        # IGR favicon (32x32)
+│   ├── favicon-64.svg     # IGR favicon (64x64)
 │   └── images/
 │       └── profile-picture.png  # Profile image
 ├── tailwind.config.js     # Tailwind configuration
@@ -48,6 +50,11 @@ portfolio-vite-vanilla/
 
 - **Font Family**: Poppins (Google Fonts)
 - **Weights**: 300, 400, 500, 600, 700
+
+### Branding
+
+- **Favicon**: Custom "IGR" favicon with orange gradient
+- **Logo**: "Ilham Gusnul" text in navbar
 
 ## 📱 Sections
 
