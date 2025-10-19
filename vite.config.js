@@ -7,7 +7,9 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {
-      input: path.resolve(process.cwd(), 'index.html')
+      input: {
+        main: path.resolve(process.cwd(), 'index.html')
+      }
     }
   },
   resolve: {
@@ -15,5 +17,8 @@ export default defineConfig({
       '@': path.resolve(process.cwd(), 'src')
     }
   },
-  publicDir: 'public'
+  publicDir: 'public',
+  server: {
+    port: 3000
+  }
 });
