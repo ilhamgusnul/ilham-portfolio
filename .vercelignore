@@ -1,0 +1,12 @@
+# Vercel Ignore
+node_modules
+.env
+.env.local
+*.log
+.DS_Store
+src
+db/seed.ts
+drizzle
+test-api.js
+*.md
+!README.md
