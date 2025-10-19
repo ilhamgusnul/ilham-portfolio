@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Portfolio</title>
+  <link rel="stylesheet" href="admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2 style="font-size: 1.25rem; font-weight: 700;">Admin Panel</h2>
+      <p style="font-size: 0.875rem; color: #6b7280; margin-top: 0.25rem;" class="user-info"></p>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item active">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Dashboard
+      </a>
+      <a href="projects.html" class="nav-item">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        Projects
+      </a>
+      <a href="skills.html" class="nav-item">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+        Skills
+      </a>
+      <a href="messages.html" class="nav-item">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Messages
+        <span id="unreadBadge" class="badge badge-danger" style="margin-left: auto;"></span>
+      </a>
+    </nav>
+    <div style="padding: 1.5rem; border-top: 1px solid #e5e7eb;">
+      <a href="/" target="_blank" class="nav-item">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        View Site
+      </a>
+      <a href="#" class="nav-item logout-btn">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+        Logout
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="page-header">
+      <h1 class="page-title">Dashboard</h1>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Total Projects</div>
+        <div class="stat-value" id="totalProjects">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Total Skills</div>
+        <div class="stat-value" id="totalSkills">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Unread Messages</div>
+        <div class="stat-value" id="unreadMessages">0</div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="table-container">
+      <div style="padding: 1.5rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem;">Quick Actions</h2>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="projects.html" class="btn btn-primary">Manage Projects</a>
+          <a href="skills.html" class="btn btn-primary">Manage Skills</a>
+          <a href="messages.html" class="btn btn-secondary">View Messages</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module">
+    import { initAdmin, showNotification } from './admin.js';
+    import { adminGetProjects, adminGetSkills, adminGetMessages } from '/src/services/api.js';
+
+    initAdmin();
+
+    // Load stats
+    async function loadStats() {
+      try {
+        const [projects, skills, messages] = await Promise.all([
+          adminGetProjects(),
+          adminGetSkills(),
+          adminGetMessages()
+        ]);
+
+        document.getElementById('totalProjects').textContent = projects.data?.length || 0;
+        document.getElementById('totalSkills').textContent = skills.data?.length || 0;
+
+        const unread = messages.data?.filter(m => !m.isRead).length || 0;
+        document.getElementById('unreadMessages').textContent = unread;
+
+        if (unread > 0) {
+          const badge = document.getElementById('unreadBadge');
+          badge.textContent = unread;
+          badge.style.display = 'inline-block';
+        }
+      } catch (error) {
+        console.error('Error loading stats:', error);
+        showNotification('Failed to load stats', 'error');
+      }
+    }
+
+    loadStats();
+  </script>
+</body>
+</html>
