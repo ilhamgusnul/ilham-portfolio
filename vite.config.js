@@ -1,20 +1,19 @@
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
+import path from 'path';
 
 export default defineConfig({
-  root: './',
+  root: process.cwd(),
   build: {
     outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html')
-      }
+      input: path.resolve(process.cwd(), 'index.html')
     }
   },
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src')
+      '@': path.resolve(process.cwd(), 'src')
     }
-  }
+  },
+  publicDir: 'public'
 });
