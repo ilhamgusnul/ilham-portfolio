@@ -1,0 +1,57 @@
+body {
+  background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+.calculator {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.2);
+  padding: 2rem;
+  width: 320px;
+}
+.display {
+  background: #222;
+  color: #fff;
+  font-size: 2.5rem;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: right;
+  margin-bottom: 1.5rem;
+  min-height: 3rem;
+  letter-spacing: 2px;
+}
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.btn {
+  background: #e0e7ef;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+}
+.btn:active {
+  background: #b2bec3;
+}
+.btn[data-action="equals"] {
+  background: #74ebd5;
+  color: #222;
+  font-weight: bold;
+}
+.btn[data-action="add"],
+.btn[data-action="subtract"],
+.btn[data-action="multiply"],
+.btn[data-action="divide"] {
+  background: #ACB6E5;
+  color: #222;
+  font-weight: bold;
+}

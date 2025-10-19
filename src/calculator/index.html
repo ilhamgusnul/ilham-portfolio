@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Modern</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <button class="btn" data-action="clear">C</button>
+      <button class="btn" data-action="back">←</button>
+      <button class="btn" data-action="divide">÷</button>
+      <button class="btn" data-action="multiply">×</button>
+      <button class="btn" data-action="7">7</button>
+      <button class="btn" data-action="8">8</button>
+      <button class="btn" data-action="9">9</button>
+      <button class="btn" data-action="subtract">−</button>    open /Volumes/Project/Project/portfolio-vite-vanilla/src/calculator/index.html
+      <button class="btn" data-action="4">4</button>
+      <button class="btn" data-action="5">5</button>
+      <button class="btn" data-action="6">6</button>
+      <button class="btn" data-action="add">+</button>
+      <button class="btn" data-action="1">1</button>
+      <button class="btn" data-action="2">2</button>
+      <button class="btn" data-action="3">3</button>
+      <button class="btn" data-action="equals" style="grid-row: span 2;">=</button>
+      <button class="btn" data-action="0" style="grid-column: span 2;">0</button>
+      <button class="btn" data-action="dot">.</button>
+    </div>
+  </div>
+  <script>
+    const display = document.getElementById('display');
+    const buttons = document.querySelectorAll('.btn');
+    let current = '';
+    let operator = '';
+    let prev = '';
+    let resetNext = false;
+
+    function updateDisplay(val) {
+      display.textContent = val;
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const action = btn.getAttribute('data-action');
+        if (!isNaN(action)) {
+          if (resetNext) {
+            current = '';
+            resetNext = false;
+          }
+          current += action;
+          updateDisplay(current);
+        } else if (action === 'dot') {
+          if (!current.includes('.')) {
+            current += current ? '.' : '0.';
+            updateDisplay(current);
+          }
+        } else if (action === 'clear') {
+          current = '';
+          prev = '';
+          operator = '';
+          updateDisplay('0');
+        } else if (action === 'back') {
+          current = current.slice(0, -1);
+          updateDisplay(current || '0');
+        } else if (["add","subtract","multiply","divide"].includes(action)) {
+          if (current) {
+            prev = current;
+            current = '';
+            operator = action;
+          }
+        } else if (action === 'equals') {
+          if (prev && current && operator) {
+            let a = parseFloat(prev);
+            let b = parseFloat(current);
+            let result = 0;
+            switch(operator) {
+              case 'add': result = a + b; break;
+              case 'subtract': result = a - b; break;
+              case 'multiply': result = a * b; break;
+              case 'divide': result = b !== 0 ? a / b : 'Err'; break;
+            }
+            updateDisplay(result);
+            if (isNaN(result) || result === 'Err') {
+              current = '';
+              resetNext = true;
+            } else {
+              current = result.toString();
+              resetNext = true;
+            }
+            prev = '';
+            operator = '';
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
