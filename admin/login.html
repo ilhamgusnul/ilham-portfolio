@@ -101,11 +101,11 @@
     </div>
 
     <script type="module">
-      import { login, isAuthenticated } from '../services/api.js';
+      import { login, isAuthenticated } from '/src/services/api.js';
 
       // Redirect if already logged in
       if (isAuthenticated()) {
-        window.location.href = '/src/admin/index.html';
+        window.location.href = '/admin/index.html';
       }
 
       const loginForm = document.getElementById('loginForm');
@@ -130,7 +130,7 @@
 
           if (response.success) {
             // Redirect to dashboard
-            window.location.href = '/src/admin/index.html';
+            window.location.href = '/admin/index.html';
           } else {
             showError(response.error || 'Login failed');
           }

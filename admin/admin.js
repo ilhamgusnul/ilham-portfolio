@@ -1,10 +1,10 @@
 // Admin Dashboard Shared Functions
-import { isAuthenticated, getCurrentUser, logout } from '../services/api.js';
+import { isAuthenticated, getCurrentUser, logout } from '/src/services/api.js';
 
 // Check authentication on page load
 export function checkAuth() {
   if (!isAuthenticated()) {
-    window.location.href = '/src/admin/login.html';
+    window.location.href = '/admin/login.html';
     return false;
   }
   return true;
