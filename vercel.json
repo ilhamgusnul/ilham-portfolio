@@ -4,6 +4,18 @@
   "framework": "vite",
   "rewrites": [
     {
+      "source": "/admin",
+      "destination": "/api/admin-login"
+    },
+    {
+      "source": "/admin-login",
+      "destination": "/api/admin-login"
+    },
+    {
+      "source": "/admin-dashboard",
+      "destination": "/api/admin-dashboard"
+    },
+    {
       "source": "/api/:path*",
       "destination": "/api/:path*"
     }
