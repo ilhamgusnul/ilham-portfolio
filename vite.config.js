@@ -9,7 +9,10 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: path.resolve(process.cwd(), 'index.html')
-      }
+      },
+      external: [
+        /^\/api\/.*/
+      ]
     }
   },
   resolve: {
